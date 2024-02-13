@@ -10,6 +10,7 @@ export default function landing() {
             <div>
                    
                 <h5>Home Page</h5>
+                <p>Hello pretty boy</p>
                 
             </div>
             
