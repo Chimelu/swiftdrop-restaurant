@@ -39,6 +39,7 @@ import CouponsEditPage from './pages/food-seller-list/coupons/couponsEdit';
 import ManageWorkDaysPage from './pages/food-seller-list/manageWorkDays';
 import AllReviewsPage from './pages/food-seller-list/allReviews';
 import PayoutMethodsPage from './pages/food-seller-list/payoutMethods/payout-methods';
+import LandingPage from './pages/landing-page'
 export default function App() {
   return (
     <>
@@ -48,7 +49,8 @@ export default function App() {
           with exact path "/", in component props 
           we passes the imported component*/}
 
-          <Route exact path="/" element={<MainDashboard />} />
+          <Route exact path="/" element={<LandingPage />} />
+          <Route exact path="/dashboard" element={<MainDashboard />} />
 
           <Route exact path="/profile/*" element={<ProfilePage />} />
           <Route exact path="/administrators" element={<AdministratorPage />} />

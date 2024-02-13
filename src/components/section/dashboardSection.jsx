@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import RightSideBar from '../dashboardComponent/bar/RightSideBar';
-import GoogleMapComponent from '../dashboardComponent/google/GoogleMapComponent';
 import React from 'react';
 
 function DashboardSection() {
@@ -35,7 +34,6 @@ function DashboardSection() {
               gap: '1rem',
             }}
           >
-            <GoogleMapComponent />
 
             <RightSideBar />
           </div>
