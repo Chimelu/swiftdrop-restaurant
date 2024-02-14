@@ -18,144 +18,47 @@ export default function DashbaordSidebar(props) {
                         <ul className="nav flex-column">
 
                             <li className="nav-item mb-2">
-                                <Link to="/" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color1}` }}>
+                                <Link to="/overview" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color1}` }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M11.3572 0.543C11.6898 0.514 12.0255 0.5 12.3651 0.5C18.7665 0.5 23.9564 5.649 23.9564 12C23.9564 12.337 23.9423 12.67 23.9131 13H22.3951C21.8891 18.053 17.5913 22 12.3651 22C6.7983 22 2.28577 17.523 2.28577 12C2.28577 6.815 6.26409 2.551 11.3572 2.05V0.543ZM11.3572 13V4.062C7.13726 4.59472 4.06007 8.28785 4.32646 12.5C4.59284 16.7122 8.11118 19.9948 12.3651 20C16.4289 19.9999 19.8577 17.0001 20.3661 13H11.3572ZM13.3731 2.552C17.8638 3.02442 21.4119 6.54461 21.8881 11H13.3731V2.552Z" fill="black" />
                                     </svg>
-                                    DASHBOARD
+                                    Overview
                                 </Link>
                             </li>
 
 
                             <li className="nav-item mb-2">
-                                <Link to="/profile/Account" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color2}` }} href="./page/profile">
+                                <Link to="/orders" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color2}` }} href="./page/profile">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M2 3.993C2.00381 3.44656 2.44556 3.00436 2.992 3H21.008C21.556 3 22 3.445 22 3.993V20.007C21.9962 20.5534 21.5544 20.9956 21.008 21H2.992C2.44397 20.9994 2 20.555 2 20.007V3.993ZM4 5V19H20V5H4ZM12 7H6V13H12V7ZM8 9V11H10V9H8ZM18 17V15H6V17H18ZM14 7H18V9H14V7ZM18 11H14V13H18V11Z" fill="black" />
                                     </svg>
-                                    PROFILE
+                                    ORDERS
                                 </Link>
                             </li>
-
+ 
                             <li className="nav-item mb-2">
-                                
-                                <button className="w-100 nav-link text-dark btn btn-toggle item-flex rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#user-collapse" aria-expanded="false">
-                                    <div className="nav-item d-flex align-items-center gap-2">
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path fillRule="evenodd" clipRule="evenodd" d="M6 7C6 10.315 8.685 13 12 13C15.315 13 18 10.315 18 7C18 3.685 15.315 1 12 1C8.685 1 6 3.685 6 7ZM14 16.342V14.252V14.251C11.6039 13.6323 9.05641 14.1574 7.10022 15.673C5.14402 17.1887 3.99937 19.5243 4 21.999L6 22C5.99963 20.052 6.94499 18.225 8.53543 17.1002C10.1259 15.9754 12.1634 15.6927 14 16.342ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11ZM18 14V17H15V19H18V22H20V19H23V17H20V14H18Z" fill="black"/>
-                                        </svg>
-                                        USERS
-                                    </div>
-                                    
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 14L8 10H16L12 14Z" fill="black"/>
-                                    </svg>
-                                   
-                                </button>
-                                
-                                <div className="collapse pl-3" id="user-collapse" style={{ paddingLeft: '20px' }}>
-                                    <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><Link to="/administrators" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color3}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
-                                                <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
-                                            </svg>Administrators</Link></li>
-                                        <li><Link to="/operators" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color4}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
-                                                <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
-                                            </svg>Operators</Link></li>
-                                        <li><Link to="/all-user" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color5}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
-                                                <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
-                                            </svg>All Users</Link></li>
-                                        
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li className="nav-item mb-2">
-                                
-                                <button className="nav-link item-flex w-100 text-dark btn btn-toggle rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#foodsell-collapse" aria-expanded="false">
-                                    <div className="nav-item d-flex align-items-center gap-2">
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path fillRule="evenodd" clipRule="evenodd" d="M21 13.242V20H22V22H2V20H3V13.242C1.74968 12.4075 0.999173 11.0033 1 9.5C1 8.673 1.224 7.876 1.633 7.197L4.345 2.5C4.52363 2.19061 4.85375 2.00001 5.211 2H18.79C19.1473 2.00001 19.4774 2.19061 19.656 2.5L22.358 7.182C23.5973 9.24037 22.9992 11.9093 21 13.242ZM19 13.972C17.6063 14.1283 16.2195 13.6254 15.25 12.612C14.4017 13.4993 13.2275 14.0011 12 14.001C10.7728 14.0016 9.59863 13.5005 8.75 12.614C7.78034 13.627 6.39354 14.1296 5 13.973V20H19V13.973V13.972ZM3.356 8.213L5.789 4H5.79H18.21L20.635 8.197C21.1204 9.00196 21.1133 10.0112 20.6166 10.8092C20.1198 11.6072 19.2174 12.0592 18.2808 11.9789C17.3442 11.8987 16.5318 11.2999 16.178 10.429C15.842 9.592 14.657 9.592 14.322 10.429C13.9429 11.3792 13.0231 12.0025 12 12.0025C10.9769 12.0025 10.0571 11.3792 9.678 10.429C9.342 9.592 8.157 9.592 7.822 10.429C7.15379 11.5524 5.73304 11.9714 4.56218 11.3904C3.39133 10.8094 2.86563 9.42459 3.356 8.213Z" fill="black"/>
-                                        </svg>
-                                        FOOD SELLERS
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 14L8 10H16L12 14Z" fill="black"/>
-                                    </svg>
-                                </button>
-                                
-                                <div className="collapse pl-3" id="foodsell-collapse" style={{ paddingLeft: '20px' }}>
-                                    <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li><Link to="/food-setting/SetMenu" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color6}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
-                                                <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
-                                            </svg>Settings</Link></li>
-                                        <li><Link to="/food-seller-list" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color7}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
-                                                <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
-                                            </svg>Food Sellers List</Link></li>
-                                        <li><Link to="/owe-amount" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color8}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
-                                                <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
-                                            </svg>Owe Amount</Link></li>    
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li className="nav-item mb-2">
-                                
-                                <button className="nav-link item-flex w-100 text-dark btn btn-toggle rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#drivers-collapse" aria-expanded="false">
-                                    <div className="nav-item d-flex align-items-center gap-2">
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <path fillRule="evenodd" clipRule="evenodd" d="M19 13C19.0009 10.4987 17.6665 8.18713 15.5 6.937H15.501C15.662 6.645 15.789 6.33 15.874 6H19V4H15.874C15.4165 2.23479 13.8235 1.00206 12 1.00206C10.1765 1.00206 8.58351 2.23479 8.126 4H5V6H8.125C8.20967 6.32701 8.33569 6.64188 8.5 6.937C6.33349 8.18713 4.99909 10.4987 5 13V21H9.17C9.5934 22.2 10.7275 23.0025 12 23.0025C13.2725 23.0025 14.4066 22.2 14.83 21H19V13ZM12 9C12.748 9 13.448 8.795 14.047 8.437C15.8441 9.24369 17.0002 11.0302 17 13V19H15V15C15 13.3432 13.6569 12 12 12C10.3431 12 9 13.3432 9 15V19H7V13C6.99977 11.0302 8.15591 9.24369 9.953 8.437C10.5718 8.8065 11.2793 9.00109 12 9ZM12 14C11.4477 14 11 14.4477 11 15V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V15C13 14.4477 12.5523 14 12 14ZM14 5C14 6.10457 13.1046 7 12 7C10.8954 7 10 6.10457 10 5C10 3.89543 10.8954 3 12 3C13.1046 3 14 3.89543 14 5Z" fill="black"/>
-                                        </svg>
-                                        DRIVERS
-                                    </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <path d="M12 14L8 10H16L12 14Z" fill="black"/>
-                                    </svg>
-                                </button>
-                                
-                                <div className="collapse pl-3" id="drivers-collapse" style={{ paddingLeft: '20px' }}>
-                                    <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li>
-                                            <Link to="/driver-setting" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color9}` }}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
-                                                <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
-                                            </svg>Setting
-                                            </Link>
-                                        </li>
-                                        <li><Link to="/driver-list" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color10}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
-                                                <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
-                                            </svg>List of Drive</Link></li>
-                                        <li><Link to="/driver-owe-amount" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color11}` }}><svg xmlns="http://www.w3.org/2000/svg" width="13" height="1" viewBox="0 0 13 1" fill="none">
-                                                <path d="M0.5 0.5H12.5" stroke="black" strokeWidth="0.5" strokeLinecap="square"/>
-                                            </svg>Owe Amount</Link></li>    
-                                    </ul>
-                                </div>
-                            </li>
-                            
-                            <li className="nav-item mb-2">
-                                <Link to="/other-history" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color12}` }} href="./page/profile">
+                                <Link to="/food-menu" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color3}` }} href="./page/profile">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M5 19V3H3V21H21V19H5ZM21.707 7.707L20.293 6.293L16 10.585L13 7.586L7.293 13.293L8.707 14.707L13 10.415L16 13.414L21.707 7.707Z" fill="black"/>
                                     </svg>
-                                    OTHER HISTORY
+                                    FOOD MENU
                                 </Link>
                             </li>
                             <li className="nav-item mb-2">
-                                <Link to="/faq" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color13}` }} href="./page/profile">
+                                <Link to="/payments" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color4}` }} href="./page/profile">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2C6.477 2 2 6.477 2 12ZM20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12ZM13 15V17H11V15H13ZM13 14V13.355C14.6436 12.8651 15.6904 11.2566 15.4726 9.55541C15.2549 7.8542 13.8368 6.56119 12.1228 6.50102C10.4087 6.44085 8.90349 7.63124 8.567 9.313L10.529 9.706C10.6839 8.93117 11.4133 8.40935 12.1966 8.51295C12.9799 8.61655 13.5486 9.31006 13.4967 10.0985C13.4448 10.887 12.7902 11.5 12 11.5C11.4477 11.5 11 11.9477 11 12.5V14H13Z" fill="black"/>
                                     </svg>
-                                    FAQ
+                                    PAYMENTS
                                 </Link>
                             </li>
                             
                             <li className="nav-item">
-                                <Link to="/general-setting" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color14}` }} href="./page/profile">
+                                <Link to="/disputes" className="nav-link d-flex align-items-center gap-2" style={{ color: `${props.nav_item_color5}` }} href="./page/profile">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <path fillRule="evenodd" clipRule="evenodd" d="M2.21276 9.94C1.92517 11.2983 1.92517 12.7017 2.21276 14.06C3.32276 13.929 4.29176 14.296 4.60876 15.061C4.92576 15.826 4.49976 16.772 3.62276 17.464C4.3798 18.6277 5.37209 19.62 6.53576 20.377C7.22876 19.499 8.17376 19.074 8.93876 19.391C9.70276 19.707 10.0698 20.677 9.93976 21.787C11.298 22.0746 12.7015 22.0746 14.0598 21.787C13.9288 20.677 14.2958 19.708 15.0608 19.391C15.8258 19.074 16.7718 19.5 17.4638 20.377C18.6274 19.62 19.6197 18.6277 20.3768 17.464C19.4988 16.771 19.0738 15.826 19.3908 15.061C19.7068 14.297 20.6768 13.93 21.7868 14.06C22.0744 12.7017 22.0744 11.2983 21.7868 9.94C20.6768 10.071 19.7078 9.704 19.3908 8.939C19.0738 8.174 19.4998 7.228 20.3768 6.536C19.6197 5.37233 18.6274 4.38004 17.4638 3.623C16.7708 4.501 15.8258 4.926 15.0608 4.609C14.2968 4.293 13.9298 3.323 14.0598 2.213C12.7015 1.92541 11.298 1.92541 9.93976 2.213C10.0708 3.323 9.70376 4.292 8.93876 4.609C8.17376 4.926 7.22776 4.5 6.53576 3.623C5.37209 4.38004 4.3798 5.37233 3.62276 6.536C4.50076 7.229 4.92576 8.174 4.60876 8.939C4.29276 9.703 3.32276 10.07 2.21276 9.94ZM6.45676 14.296C6.00676 13.212 5.09976 12.515 3.99976 12.21C3.99576 12.07 3.99576 11.93 3.99976 11.79C5.09976 11.485 6.00676 10.788 6.45676 9.704C6.90476 8.619 6.75676 7.485 6.19476 6.492C6.29076 6.39 6.38976 6.291 6.49176 6.195C7.48376 6.757 8.61876 6.906 9.70376 6.457C10.7878 6.007 11.4848 5.1 11.7898 4C11.9297 3.99629 12.0698 3.99629 12.2098 4C12.5148 5.1 13.2118 6.007 14.2958 6.457C15.3808 6.905 16.5148 6.757 17.5078 6.195C17.6094 6.29136 17.7084 6.3904 17.8048 6.492C17.2428 7.484 17.0938 8.619 17.5428 9.704C17.9928 10.788 18.8998 11.485 19.9998 11.79C20.0038 11.93 20.0038 12.07 19.9998 12.21C18.8998 12.515 17.9928 13.212 17.5428 14.296C17.0948 15.381 17.2428 16.515 17.8048 17.508C17.7088 17.61 17.6098 17.709 17.5078 17.805C16.5158 17.243 15.3808 17.094 14.2958 17.543C13.2118 17.993 12.5148 18.9 12.2098 20C12.0698 20.004 11.9298 20.004 11.7898 20C11.4848 18.9 10.7878 17.993 9.70376 17.543C8.61876 17.095 7.48476 17.243 6.49176 17.805C6.38976 17.709 6.29076 17.61 6.19476 17.508C6.75676 16.516 6.90576 15.381 6.45676 14.296ZM11.9998 15C10.3429 15 8.99976 13.6569 8.99976 12C8.99976 10.3431 10.3429 9 11.9998 9C13.6566 9 14.9998 10.3431 14.9998 12C14.9998 13.6569 13.6566 15 11.9998 15ZM12.9998 12C12.9998 12.5523 12.552 13 11.9998 13C11.4475 13 10.9998 12.5523 10.9998 12C10.9998 11.4477 11.4475 11 11.9998 11C12.552 11 12.9998 11.4477 12.9998 12Z" fill="black"/>
                                     </svg>
-                                    GENERAL SETTING
+                                    DISPUTES
                                 </Link>
                             </li>
 
