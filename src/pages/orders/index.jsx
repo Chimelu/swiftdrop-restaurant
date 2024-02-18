@@ -1,7 +1,7 @@
 import DashboardHeader from '../../components/header/dashbaordHeader'
 import DashbaordSidebar from '../../components/header/dashboardSidebar'
 import OrderComponent from '../../components/orderComponent'
-//import '../../components/styles/dashboard-styles/styles.css'
+import '../../components/styles/dashboard-styles/styles.css'
 import '../../App.css'
 
 export default function Orders() {
@@ -25,7 +25,7 @@ export default function Orders() {
            
           />
 
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 height py-3" style={{ backgroundColor: "#F2F4F7" }}>
+          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 body" style={{ backgroundColor: "#F2F4F7" }}>
 
             <OrderComponent />
 
