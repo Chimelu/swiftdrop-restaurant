@@ -25,7 +25,7 @@ export default function FoodMenu() {
             
           />
 
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 height py-3" style={{ backgroundColor: "#F2F4F7", }}>
+          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4 body" style={{ backgroundColor: "#F2F4F7", }}>
 
             <FoodMenuComponent />
 
