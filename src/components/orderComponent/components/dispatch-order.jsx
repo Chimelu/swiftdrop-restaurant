@@ -1,7 +1,7 @@
 import OnToggleComponent from "./on-toggle";
 import OntoggleNavbar from "./ontoggle-navbar";
-import DelieveryAccordion from "./delivery-accordion";
-export default function DeliveryOrder() {
+import DispatchTable from "./dispatch-table";
+export default function DispatchOrderComponent() {
     
 
     return (
@@ -22,7 +22,8 @@ export default function DeliveryOrder() {
                     
                 </div>
                 <div className="mt-4">
-                    <DelieveryAccordion/>
+                    
+                    <DispatchTable/>
                 </div>
             </div>
         </>

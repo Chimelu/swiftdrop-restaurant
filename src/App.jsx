@@ -7,8 +7,10 @@ import OverviewPage from './pages/overview';
 import OrdersPage from './pages/orders';
 import PendingOrder from './pages/orders/pending-order';
 import DelieveryReady from './pages/orders/delivery-ready';
+import DispatchOrder from './pages/orders/dispatch-order';
 import FoodMenuPage from './pages/foodMenu';
 import ViewOrder from './pages/orders/view-order';
+import MenuDetailPage from './MenuDetailPage';
 
 
 import LandingPage from './pages/landing-page'
@@ -25,9 +27,11 @@ export default function App() {
           <Route exact path="/overview" element={<OverviewPage />} />
           <Route exact path="/orders" element={<OrdersPage />} />
           <Route exact path="/pending-order" element={<PendingOrder />} />
-          <Route exact path="/view-order" element={<ViewOrder />} />
+          <Route exact path="/dispatch-order" element={<DispatchOrder />} />
+          <Route exact path="/view-order/:orderId" element={<ViewOrder />} />
           <Route exact path="/delivery-ready" element={<DelieveryReady />} />
           <Route exact path="/food-menu" element={<FoodMenuPage />} />
+          <Route exact path="/menu/:menuItem" element={<MenuDetailPage />} />
 
           
           

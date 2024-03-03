@@ -1,8 +1,7 @@
-import OnToggleComponent from "./on-toggle";
 import OntoggleNavbar from "./ontoggle-navbar";
 import PendingCard from "./pending-card";
-
-export default function OffToggleComponent() {
+import OnToggleComponent from "./on-toggle";
+const OpenRestuarant = () => {
     
     
     return (
@@ -11,21 +10,24 @@ export default function OffToggleComponent() {
                 <div className="align-top bg-white p-3">
                     <div>
                         <h2>Orders</h2>
+                        
                         <OnToggleComponent/>
+                        
                     </div>
                     <div className="">
-                       <OntoggleNavbar
-                        pending="#F8B602"
-                        delivery_ready="#fff"
-                        failed="#fff"
-                       />
+                        <OntoggleNavbar
+                            pending="#F8B602"
+                            delivery_ready="#fff"
+                            failed="#fff"
+                        />
                     </div>
-                  
                 </div>
                 <div className="mt-3">
-                    <PendingCard/>
+                    <PendingCard />
                 </div>
             </div>
         </>
     );
-}
+};
+
+export default OpenRestuarant;
