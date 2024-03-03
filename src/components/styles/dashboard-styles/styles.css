@@ -8,6 +8,12 @@
     justify-content: space-between;
     align-items: center;
   }
+  .space-flex2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
   .column-flex{
     display: flex;
     flex-direction: column;
@@ -263,6 +269,17 @@
     border-radius: 50%;
     cursor: pointer;
   }
+.orderImg{
+  width: 60px;
+  height: 60px;
+}
+.orderImg img{
+  width: 100%;
+  border-radius: 50%;
+  height: 100%;
+  object-fit: cover;
+}
 
-
-  
+.lg-text{
+  font-size: 20px;
+}

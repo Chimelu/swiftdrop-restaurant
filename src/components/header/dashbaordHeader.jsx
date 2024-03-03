@@ -23,7 +23,7 @@ export default function DashboardHeader() {
 
 
                     </svg> */}
-                    <img src="/public/Logo.svg" />
+                    <img src="/public/image/Logo.svg" />
                     <span>
                         <span className="double px-2">SwiftDrop<span className="dot"></span> </span>
 
@@ -61,7 +61,7 @@ export default function DashboardHeader() {
                             </span>
 
                             <span style={{}}>
-                                <img id="dashboard-user-profile-chip" src="/profile.png" />
+                                <img id="dashboard-user-profile-chip" src="/public/image/profile.png" />
                             </span>
 
                             <MobileView>

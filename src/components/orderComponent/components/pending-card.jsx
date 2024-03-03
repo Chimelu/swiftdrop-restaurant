@@ -1,10 +1,24 @@
 // Import the data file
-import React, { useState } from 'react';
-import pendingOrdersData from './pendingOrdersData';
+//import pendingOrdersData from './pendingOrdersData';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 // Your existing code for PendingCard component
 
 export default function PendingCard() {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from the API
+    axios.get('https://swifdropp.onrender.com/api/v1/orders/restaurantorderss/658539fb00f8fe9b7e53dbfa')
+      .then(response => {
+        setOrders(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching orders:', error);
+      });
+  }, []);
+
   const [showAllItemsMap, setShowAllItemsMap] = useState({});
 
   const toggleItemsDisplay = (orderIndex) => {
@@ -13,6 +27,7 @@ export default function PendingCard() {
       [orderIndex]: !prevMap[orderIndex],
     }));
   };
+
   const generateRandomColor = () => {
     const letters = '0123456789ABCDEF';
     let color = '#';
@@ -25,22 +40,20 @@ export default function PendingCard() {
   return (
     <>
       <div>
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-        {pendingOrdersData.map((order, orderIndex) => (
-            <div className="col" key={orderIndex}>
+        <div className="row row-cols-1 row-cols-md-3 ">
+          {orders.map((order, orderIndex) => (
+            <div className="col mb-3" key={orderIndex}>
               <div className="card" style={{ backgroundColor: '#DBFFDC', border: '2px solid #4CAF50' }}>
                 <div className="card-body">
-                  {/* ... Your existing code for rendering card content */}
                   
-
                   <div className="d-flex justify-content-between">
-                        <div className="d-flex justify-content-between gap-3">
+                        <div className="d-flex justify-content-between gap-2">
                           <div className="user-bg" style={{ backgroundColor: generateRandomColor() }}>
                           {order.userInitial || 'U'} 
                           </div>
                             <div className="d-flex flex-column">
-                                <div><strong><span>Order #{order.orderNumber}</span></strong></div>
-                                <div>{order.timestamp}</div>
+                                <strong style={{fontSize: '13px'}}><span>Order #{order.orderId}</span></strong>
+                                <div>{order.orderDate}</div>
                             </div>
                         </div>
                         <div className="div-yellow">
@@ -50,16 +63,17 @@ export default function PendingCard() {
                   {/* ... Render items here using order.items */}
                     <div className='mt-3'>
 
-                    {order.items.slice(0, showAllItemsMap[orderIndex] ? order.items.length : 2).map((item, itemIndex) => (
-                            <div key={itemIndex} className="d-flex justify-content-between mt-2">
+                    {order.orderItems.map((item, itemIndex) => (
+                            <div key={itemIndex} className="d-flex justify-content-between">
                                 {/* ... Your existing code for rendering item content */}
-                                <div className='d-flex justify-content-between gap-2'>
-
-                                    <img src={item.image} alt={item.name} />
+                                <div className='d-flex justify-content-between mt-2 gap-2'>
+                                    <div className="orderImg">
+                                      <img src={item.foodImage} alt={item.foodName} />
+                                    </div>
                                     <div className="d-flex flex-column">
-                                        <div><h6><span>{item.name}</span></h6></div>
+                                        <div><h6><span>{item.foodName}</span></h6></div>
                                         <div>{item.description}</div>
-                                        <div><strong>{item.price}</strong></div>
+                                        <div><strong style={{fontSize: '13px'}}>N{item.price}</strong></div>
                                     </div>
                                 </div>
                                 <div>{`x${item.quantity}`}</div>
@@ -67,7 +81,7 @@ export default function PendingCard() {
                             </div>
                             
                         ))}
-                          {order.items.length > 2 && (
+                          {order.orderItems.length > 2 && (
                             <div className='py-0 my-0 text-right d-flex align-items-end justify-content-end'>
                               <a href='#' className='text-right text-decoration-none' onClick={() => toggleItemsDisplay(orderIndex)}>
                                 {showAllItemsMap[orderIndex] ? '- Show less' : '+ Show more'}
@@ -77,10 +91,10 @@ export default function PendingCard() {
                           <hr/>
                           <div className='space-flex pt-0 mt-0'>
                             <span>Total</span>
-                            <strong><span>N9,000</span></strong>
+                            <strong><span>N{order.totalAmount}</span></strong>
                           </div>
                           <div className='d-flex justify-content-end mt-2'>
-                            <Link to="/view-order" className="btn btn-success">
+                            <Link to={`/view-order/${order.orderId}`} className="btn btn-success">
                               View Order
                             </Link>
                           </div>
