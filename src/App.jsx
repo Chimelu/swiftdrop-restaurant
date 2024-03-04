@@ -9,9 +9,8 @@ import PendingOrder from './pages/orders/pending-order';
 import DelieveryReady from './pages/orders/delivery-ready';
 import DispatchOrder from './pages/orders/dispatch-order';
 import FoodMenuPage from './pages/foodMenu';
-import FoodMenuItem from './pages/foodMenu/foodMenuItem';
 import ViewOrder from './pages/orders/view-order';
-
+import MenuDetailPage from './MenuDetailPage';
 
 // import LandingPage from './pages/landing-page';
 import SignUp from './pages/landing-page/components/signup/SignUp';
