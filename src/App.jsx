@@ -10,8 +10,14 @@ import DelieveryReady from './pages/orders/delivery-ready';
 import FoodMenuPage from './pages/foodMenu';
 import ViewOrder from './pages/orders/view-order';
 
+// import LandingPage from './pages/landing-page';
+import SignUp from './pages/landing-page/components/signup/SignUp';
+import SignIn from './pages/landing-page/components/signin/SignIn';
+import ForgottenPassword from './pages/landing-page/components/forgotten/Forgotten';
+import ResetPassword from './pages/landing-page/components/reset/ResetPassword';
+import About from './pages/landing-page/components/about/About';
 
-import LandingPage from './pages/landing-page'
+import LandingPage from './pages/landing-page';
 export default function App() {
   return (
     <>
@@ -28,9 +34,15 @@ export default function App() {
           <Route exact path="/view-order" element={<ViewOrder />} />
           <Route exact path="/delivery-ready" element={<DelieveryReady />} />
           <Route exact path="/food-menu" element={<FoodMenuPage />} />
-
-          
-          
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/signin" element={<SignIn />} />
+          <Route
+            exact
+            path="/forgottenpassword"
+            element={<ForgottenPassword />}
+          />
+          <Route exact path="/resetpassword" element={<ResetPassword />} />
+          <Route exact path="/about" element={<About />} />
         </Routes>
       </Router>
     </>
