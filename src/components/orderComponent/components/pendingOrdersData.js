@@ -3,6 +3,8 @@
 const pendingOrdersData = [
     {
       orderNumber: '10114',
+      driverName: 'John Cage',
+      driverEmail: 'info@yourmail.com',
       userInitial: 'J',
       timestamp: '08:24 AM, 05/01/24',
       items: [
@@ -33,6 +35,8 @@ const pendingOrdersData = [
     {
       orderNumber: '101',
       userInitial: 'J',
+      driverName: 'John Cage',
+      driverEmail: 'info@yourmail.com',
       timestamp: '09:24 AM, 07/01/24',
       items: [
         {
@@ -62,6 +66,8 @@ const pendingOrdersData = [
     {
       orderNumber: '1014',
       userInitial: 'J',
+      driverName: 'John Cage',
+      driverEmail: 'info@yourmail.com',
       timestamp: '08:24 AM, 05/01/24',
       items: [
         {
@@ -84,6 +90,8 @@ const pendingOrdersData = [
     {
       orderNumber: '1114',
       userInitial: 'J',
+      driverName: 'John Cage',
+      driverEmail: 'name@yourmail.com',
       timestamp: '08:24 AM, 05/01/24',
       items: [
         {
@@ -106,6 +114,8 @@ const pendingOrdersData = [
     {
       orderNumber: '014',
       userInitial: 'J',
+      driverName: 'Linda Cage',
+      driverEmail: 'name@yourmail.com',
       timestamp: '08:24 AM, 05/01/24',
       items: [
         {
