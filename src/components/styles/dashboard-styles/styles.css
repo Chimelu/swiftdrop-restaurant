@@ -283,3 +283,13 @@
 .lg-text{
   font-size: 20px;
 }
+
+
+.foodItemImg{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.card-radius{
+  border-radius: 19px;
+}
