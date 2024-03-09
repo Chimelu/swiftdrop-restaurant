@@ -6,7 +6,7 @@ import { setKey } from 'react-geocode';
 
 import { BiCloudUpload } from 'react-icons/bi';
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import image4 from '../../../../Asset/image4.svg';
 import BG from '../../../../Asset/BG.png';
 import { TbStarFilled } from 'react-icons/tb';
@@ -42,6 +42,7 @@ const SignUp = () => {
   setKey('AIzaSyDE83Koe2R_WZ1oOAt5SDicYKUBcBFLwy0');
 
   const addressInputRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const autocomplete = new window.google.maps.places.Autocomplete(
@@ -62,12 +63,7 @@ const SignUp = () => {
   const handleFileInputChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Convert the image file to a Base64-encoded string
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setRestaurantLogo(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setRestaurantLogo(file); // Set the file directly
       console.log('Selected Image File:', file);
     }
   };
@@ -81,10 +77,10 @@ const SignUp = () => {
       errors.firstName = 'First Name is required';
     } else if (!lastName) {
       errors.lastName = 'Last Name is required';
-      // } else if (!restaurantName) {
-      //   errors.restaurantName = 'Restaurant Name is required';
-      //   // } else if (!restaurantLogo) {
-      //   //   errors.restaurantLogo = 'Logo is required';
+    } else if (!restaurantName) {
+      errors.restaurantName = 'Restaurant Name is required';
+    } else if (!restaurantLogo) {
+      errors.restaurantLogo = 'Logo is required';
     } else if (!email) {
       errors.email = 'Email is required';
     } else if (!phoneNumber) {
@@ -128,49 +124,54 @@ const SignUp = () => {
         longitude: lng,
       };
 
-      // const formData = new FormData();
-      // formData.append('coordinates[longitude]', lng);
-      // formData.append('coordinates[latitude]', lat);
-      // formData.append('firstname', firstName);
-      // formData.append('lastname', lastName);
-      // formData.append('email', email);
-      // formData.append('restaurantName', restaurantName);
-      // formData.append('password', password);
-      // formData.append('phoneNumber', phoneNumber);
-      // formData.append('address', location);
-      // formData.append('code', postalCode);
-      // formData.append('image', restaurantLogo);
+      const formData = new FormData();
+      // formData.append(
+      //   'coordinates',
+      //   JSON.stringify({ latitude: lat, longitude: lng })
+      // );
+      formData.append('latitude', lat);
+      formData.append('longitude', lng);
+      formData.append('firstname', firstName);
+      formData.append('lastname', lastName);
+      formData.append('email', email);
+      formData.append('restaurantName', restaurantName);
+      formData.append('password', password);
+      formData.append('phoneNumber', phoneNumber);
+      formData.append('address', location);
+      formData.append('code', postalCode);
+      formData.append('image', restaurantLogo);
 
-      const requestData = {
-        coordinates: {
-          latitude: lat,
-          longitude: lng,
-        },
-        firstname: firstName,
-        lastname: lastName,
-        email: email,
-        restaurantName: restaurantName,
-        password: password,
-        phoneNumber: phoneNumber,
-        address: location,
-        code: postalCode,
-        image: restaurantLogo,
-      };
+      // const requestData = {
+      //   coordinates: {
+      //     latitude: lat,
+      //     longitude: lng,
+      //   },
+      //   firstname: firstName,
+      //   lastname: lastName,
+      //   email: email,
+      //   restaurantName: restaurantName,
+      //   password: password,
+      //   phoneNumber: phoneNumber,
+      //   address: location,
+      //   code: postalCode,
+      //   image: restaurantLogo,
+      // };
 
       const registerResponse = await fetch(
         'https://swifdropp.onrender.com/api/v1/restaurant',
         {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(requestData),
+          // headers: {
+          //   'Content-Type': 'application/json',
+          // },
+          body: formData,
         }
       );
 
       if (registerResponse.ok) {
         const responseData = await registerResponse.json();
         console.log('Registration successful:', responseData);
+        navigate('/signin');
       } else {
         const errorData = await registerResponse.json();
         console.error('Registration failed:', errorData);
@@ -181,6 +182,7 @@ const SignUp = () => {
       }
     } catch (error) {
       console.error('Error registering restaurant:', error);
+      setFormErrors({ serverError: 'Network error. Please try again later.' });
     } finally {
       setShowSpinner(false);
     }
@@ -358,17 +360,21 @@ const SignUp = () => {
             <p className="error-message">{formErrors.registrationNumber}</p>
           )}
 
-          <div className="options">
+          <button className="signup-btn" type="submit" disabled={showSpinner}>
             {showSpinner ? (
-              <div className="d-flex justify-content-center">
-                <div className="spinner-border" role="status">
+              <div className="d-flex align-items-center justify-content-center">
+                <div
+                  className="spinner-border spinner-border-sm me-2"
+                  role="status"
+                >
                   <span className="visually-hidden">Loading...</span>
                 </div>
+                <span>Loading...</span>
               </div>
             ) : (
-              <button type="submit">Sign up</button>
-            )}{' '}
-          </div>
+              'Sign up'
+            )}
+          </button>
         </form>
         <div className="navigate">
           <p>Already have an account?</p>

@@ -7,7 +7,10 @@ import { useState, useEffect } from 'react';
 import Filter from '../../Asset/Filter.png';
 import Group from '../../Asset/Group.png';
 import Truck from '../../Asset/Truck.png';
+import { useNavigate } from 'react-router-dom';
 export default function OverviewComponent() {
+  const navigate = useNavigate();
+
   const [activeTab, setActiveTab] = useState('all');
   const [orders, setOrders] = useState([]);
   const [newOrders, setNewOrders] = useState([]);
@@ -15,6 +18,14 @@ export default function OverviewComponent() {
   const [onOrders, setOnOrders] = useState([]);
   const [deliveredOrders, setDeliveredOrders] = useState([]);
   const userId = localStorage.getItem('userId');
+  const isAuthenticated = !!userId;
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      console.log(isAuthenticated);
+      navigate('/signin');
+    }
+  }, [isAuthenticated, navigate]);
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -105,9 +116,9 @@ export default function OverviewComponent() {
   };
   const sliderStyle = {
     width: '100px',
-    height: '3px',
-    backgroundColor: 'blue',
-    marginTop: '5px',
+    height: '2px',
+    backgroundColor: 'black',
+    // marginTop: '5px',
     marginLeft:
       activeTab === 'succeeded'
         ? '-1.30%'
