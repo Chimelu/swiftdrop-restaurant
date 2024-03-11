@@ -8,7 +8,7 @@ export default function OnToggleComponent() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('https://swifdropp.onrender.com/api/v1/restaurant/available/658539fb00f8fe9b7e53dbfa')
+        axios.patch('https://swifdropp.onrender.com/api/v1/restaurant/available/658539fb00f8fe9b7e53dbfa')
             .then(response => {
                 const isOpenFromApi = response.data.isOpen;
                 setIsOpen(isOpenFromApi);
@@ -22,7 +22,7 @@ export default function OnToggleComponent() {
     const handleCheckboxChange = () => {
         const newSwitchState = !isOpen;
 
-        axios.post('https://swifdropp.onrender.com/api/v1/restaurant/available/658539fb00f8fe9b7e53dbfa', { isOpen: newSwitchState })
+        axios.patch('https://swifdropp.onrender.com/api/v1/restaurant/available/658539fb00f8fe9b7e53dbfa', { isOpen: newSwitchState })
             .then(response => {
                 setIsOpen(newSwitchState);
 
