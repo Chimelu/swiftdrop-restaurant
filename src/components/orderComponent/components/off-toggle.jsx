@@ -7,7 +7,7 @@ export default function OffToggleComponent() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('https://swifdropp.onrender.com/api/v1/restaurant/available/658539fb00f8fe9b7e53dbfa')
+        axios.patch('https://swifdropp.onrender.com/api/v1/restaurant/available/658539fb00f8fe9b7e53dbfa')
             .then(response => {
                 const isOpen = response.data.isOpen;
                 setIsChecked(isOpen);
