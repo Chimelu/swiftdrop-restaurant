@@ -10,7 +10,6 @@ import DelieveryReady from './pages/orders/delivery-ready';
 import DispatchOrder from './pages/orders/dispatch-order';
 import FoodMenuPage from './pages/foodMenu';
 import ViewOrder from './pages/orders/view-order';
-// import MenuDetailPage from './MenuDetailPage';
 
 // import LandingPage from './pages/landing-page';
 import SignUp from './pages/landing-page/components/signup/SignUp';
@@ -34,7 +33,7 @@ export default function App() {
           <Route exact path="/orders" element={<OrdersPage />} />
           <Route exact path="/pending-order" element={<PendingOrder />} />
           <Route exact path="/dispatch-order" element={<DispatchOrder />} />
-          <Route exact path="/view-order/:orderId" element={<ViewOrder />} />
+          <Route exact path="/view-order/:order_id" element={<ViewOrder />} />
           <Route exact path="/delivery-ready" element={<DelieveryReady />} />
           <Route exact path="/food-menu" element={<FoodMenuPage />} />
           <Route exact path="/signup" element={<SignUp />} />
@@ -46,8 +45,6 @@ export default function App() {
           />
           <Route exact path="/resetpassword" element={<ResetPassword />} />
           <Route exact path="/about" element={<About />} />
-
-          {/* <Route exact path="/menu/:menuItem" element={<MenuDetailPage />} /> */}
         </Routes>
       </Router>
     </>

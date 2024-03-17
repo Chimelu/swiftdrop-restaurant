@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import Filter from '../../Asset/Filter.png';
 import Group from '../../Asset/Group.png';
 import Truck from '../../Asset/Truck.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 export default function OverviewComponent() {
   const navigate = useNavigate();
 
@@ -18,6 +18,7 @@ export default function OverviewComponent() {
   const [onOrders, setOnOrders] = useState([]);
   const [deliveredOrders, setDeliveredOrders] = useState([]);
   const userId = localStorage.getItem('userId');
+  const navigate = useNavigate()
   const isAuthenticated = !!userId;
 
   useEffect(() => {
@@ -132,8 +133,8 @@ export default function OverviewComponent() {
       <h2>Overview</h2>
       <div className="overview-orders">
         <div className="new-orders">
-          <div className="orders1">
-            <p className="order-heading">New Orders</p>
+          <div className="orders1" style={{cursor:"pointer"}}>
+            <p className="order-heading" >New Orders</p>
             <img src={Group} alt="group" />
           </div>
           <div>
