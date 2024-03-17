@@ -7,7 +7,7 @@ import { setKey } from 'react-geocode';
 import { BiCloudUpload } from 'react-icons/bi';
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import image4 from '../../../../Asset/image4.svg';
+import image4 from '../../../../Asset/Image4.svg';
 import BG from '../../../../Asset/BG.png';
 import { TbStarFilled } from 'react-icons/tb';
 
