@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import image4 from '../../../../Asset/image4.svg';
+import image4 from '../../../../Asset/Image4.svg';
 import BG from '../../../../Asset/BG.png';
 import { TbStarFilled } from 'react-icons/tb';
 import { useState, useEffect } from 'react';
@@ -161,17 +161,21 @@ const SignIn = () => {
             </Link>
           </div>
           <div className="login">
-            {showSpinner ? (
-              <div className="d-flex justify-content-center">
-                <div className="spinner-border" role="status">
-                  <span className="visually-hidden">Loading...</span>
+            <button className="loginbtn" type="submit" disabled={showSpinner}>
+              {showSpinner ? (
+                <div className="d-flex align-items-center justify-content-center">
+                  <div
+                    className="spinner-border spinner-border-sm me-2"
+                    role="status"
+                  >
+                    <span className="visually-hidden">Loading...</span>
+                  </div>
+                  <span>Loading...</span>
                 </div>
-              </div>
-            ) : (
-              <button className="loginbtn" type="submit">
-                Login
-              </button>
-            )}{' '}
+              ) : (
+                'Sign up'
+              )}
+            </button>
             <div className="options1">
               <p>Don't have an account?</p>
               <Link className="link1" to="/signup">

@@ -3,26 +3,30 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 
+
 export default function OnToggleComponent() {
-    const [isOpen, setIsOpen] = useState(true); // Use a more descriptive variable name
+    const [isOpen, setIsOpen] = useState(false); // Initialize isOpen to false
+    const [isLoading, setIsLoading] = useState(true); // Track loading state
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('https://swifdropp.onrender.com/api/v1/restaurant/available/658539fb00f8fe9b7e53dbfa')
+        axios.patch('https://swifdropp.onrender.com/api/v1/restaurant/available/658539fb00f8fe9b7e53dbfa')
             .then(response => {
                 const isOpenFromApi = response.data.isOpen;
                 setIsOpen(isOpenFromApi);
+                setIsLoading(false); // Once state is fetched, set loading to false
             })
             .catch(error => {
                 console.error('Error fetching initial switch state:', error);
-                // Handle error - you might want to set a default state or show an error message to the user
+                setIsLoading(false); // Set loading to false even on error
+                // Handle error - set a default state or show an error message to the user
             });
     }, []);
 
     const handleCheckboxChange = () => {
         const newSwitchState = !isOpen;
 
-        axios.post('https://swifdropp.onrender.com/api/v1/restaurant/available/658539fb00f8fe9b7e53dbfa', { isOpen: newSwitchState })
+        axios.patch('https://swifdropp.onrender.com/api/v1/restaurant/available/658539fb00f8fe9b7e53dbfa', { isOpen: newSwitchState })
             .then(response => {
                 setIsOpen(newSwitchState);
 
@@ -38,21 +42,22 @@ export default function OnToggleComponent() {
             });
     };
 
-
     return (
         <>
             <div>
                 <div className="toggle-div space-flex">
                     <div className="toggle-text">Toggle on displays your restaurant as open</div>
-                    <div className="form-check form-switch cursor-pointer">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            style={{ cursor: "pointer" }}
-                            checked={isOpen}
-                            onChange={handleCheckboxChange}
-                        />
-                    </div>
+                    {!isLoading && (
+                        <div className="form-check form-switch cursor-pointer">
+                            <input
+                                className="form-check-input"
+                                type="checkbox"
+                                style={{ cursor: "pointer" }}
+                                checked={isOpen}
+                                onChange={handleCheckboxChange}
+                            />
+                        </div>
+                    )}
                 </div>
             </div>
         </>

@@ -1,5 +1,5 @@
 import React from 'react';
-import iphone from '../../../../Asset/iphone 15 Pro.png';
+import iphone from "../../../../Asset/iPhone 15 Pro.png"
 import AppleStore from '../../../../Asset/App Store.png';
 import PlayStore from '../../../../Asset/Play Store.png';
 import { Link } from 'react-router-dom';
